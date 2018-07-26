@@ -1,12 +1,31 @@
 {
   "name": "mikrotik-export",
   "version": "1.0.0",
-  "private": true,
+  "description": "Config exporter for mikrotik devices",
+  "main": "src/index.js",
   "bin": {
     "mikrotik-export": "./src/index.js"
   },
   "dependencies": {
     "commander": "^2.16.0",
     "ssh2": "^0.6.1"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Subash/mikrotik-export.git"
+  },
+  "keywords": [
+    "mikrotik",
+    "export"
+  ],
+  "author": "Subash Pathak <subash@subash.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Subash/mikrotik-export/issues"
+  },
+  "homepage": "https://github.com/Subash/mikrotik-export#readme"
 }
