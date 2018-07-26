@@ -28,11 +28,11 @@ function addDelay(data, delay) {
   return `:delay ${delay}\n\n${data}`;
 }
 
-async function exportConfig({ username, password, host, port, file, keepComments, beautify, delay, secrets }) {
+async function exportConfig({ username, password, host, port, file, keepComments, beautify, delay, secrets, keepSecrets }) {
   let { stdout: data } = await executeCommandOnDevice('/export', { username, password, host, port });
   if(!keepComments) data = removeComments(data);
   if(beautify) data = beautifyConfig(data);
-  if(secrets.length) data = concealSecrets(data, secrets);
+  if(secrets.length && !keepSecrets) data = concealSecrets(data, secrets);
   if(delay !== 'none') data = addDelay(data, delay);
   await writeFileAsync(file, data);
 }

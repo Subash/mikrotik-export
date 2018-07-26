@@ -15,6 +15,7 @@ program
   .option('--keep-comments', 'Keep Comments')
   .option('--no-beautify', 'No Beautify')
   .option('--secrets <secrets>', 'Comma separated list of secrets to conceal', '')
+  .option('--keep-secrets', 'Keep Secrets')
   .option('--delay <delay>', `Add a delay at the beginning of the file ${paddedNewLine} https://forum.mikrotik.com/viewtopic.php?t=73663#p374885 ${paddedNewLine} Set \`none\` for no delay.`, '30s')
   .parse(process.argv);
 
@@ -33,7 +34,8 @@ const options = {
   keepComments: program.keepComments,
   beautify: program.beautify,
   delay: program.delay,
-  secrets: (program.secrets ||  process.env.MIKROTIK_SECRETS || '').split(',').map(s => s.trim()).filter( val => !!val)
+  secrets: (program.secrets ||  process.env.MIKROTIK_SECRETS || '').split(',').map(s => s.trim()).filter( val => !!val),
+  keepSecrets: program.keepSecrets
 }
 
 if(optionMissing) process.exit(1);
