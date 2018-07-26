@@ -1,7 +1,11 @@
+## Export Mikrotik config
+
+### Installing
 ```bash
 npm install -g mikrotik-export
 ```
 
+### Running
 ```bash
 node src --help
 
