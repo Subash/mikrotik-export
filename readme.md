@@ -24,7 +24,7 @@ Options:
   --secrets <secrets>    Comma separated list of secrets to conceal
   --keep-secrets         Keep Secrets
   --delay <delay>        Add a delay at the beginning of the file
-                          https://forum.mikrotik.com/viewtopic.php?t=73663#p374885
-                          Set `none` for no delay. (default: 30s)
+                         https://forum.mikrotik.com/viewtopic.php?t=73663#p374885
+                         Set `none` for no delay. (default: 30s)
   -h, --help             output usage information
 ```
