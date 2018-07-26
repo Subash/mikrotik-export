@@ -14,7 +14,6 @@ program
   .option('--file <file>', 'Path of the exported file', 'config.rsc')
   .option('--keep-comments', 'Keep Comments')
   .option('--no-beautify', 'No Beautify')
-  .option('--keep-secrets', 'Keep Secrets')
   .option('--secrets <secrets>', 'Comma separated list of secrets to conceal', '')
   .option('--delay <delay>', `Add a delay at the beginning of the file ${paddedNewLine} https://forum.mikrotik.com/viewtopic.php?t=73663#p374885 ${paddedNewLine} Set \`none\` for no delay.`, '30s')
   .parse(process.argv);
@@ -33,9 +32,8 @@ const options = {
   file: path.resolve(process.cwd(), program.file),
   keepComments: program.keepComments,
   beautify: program.beautify,
-  keepSecrets: program.keepSecrets,
   delay: program.delay,
-  secrets: (program.secrets ||  process.env.MIKROTIK_SECRETS || '').split(',').map(s => s.trim())
+  secrets: (program.secrets ||  process.env.MIKROTIK_SECRETS || '').split(',').map(s => s.trim()).filter( val => !!val)
 }
 
 if(optionMissing) process.exit(1);
