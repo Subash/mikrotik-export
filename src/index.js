@@ -10,7 +10,7 @@ program
   .option('--host <host>', 'Device hostname or IP address')
   .option('--port <port>', 'SSH port of the device', 22)
   .option('--username <username>', 'Device username')
-  .option('--password, <password>', 'Device password')
+  .option('--password <password>', 'Device password')
   .option('--file <file>', 'Path of the exported file', 'config.rsc')
   .option('--keep-comments', 'Keep Comments')
   .option('--no-beautify', 'No Beautify')
