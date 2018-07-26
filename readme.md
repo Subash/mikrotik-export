@@ -1,4 +1,4 @@
-## Export MikroTik config
+## Export MikroTik Config
 
 ### Installing
 ```bash
