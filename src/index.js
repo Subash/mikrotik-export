@@ -3,7 +3,7 @@ const program = require('commander');
 const path = require('path');
 const exporter = require('./exporter');
 const pkg = require('../package.json');
-const paddedNewLine = `\n${new Array(24).fill('').join(' ')}`;
+const paddedNewLine = `\n${new Array(23).fill('').join(' ')}`;
 
 program
   .version(pkg.version, '--version')
