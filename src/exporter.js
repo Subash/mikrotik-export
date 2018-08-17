@@ -18,8 +18,7 @@ function removeComments(data) {
 
 function concealSecrets(data, secrets) {
   for(const secret of secrets) {
-    data = data.replace(new RegExp(`password=${secret}`, 'gi'), 'password=****');
-    data = data.replace(new RegExp(`secret=${secret}`, 'gi'), 'secret=****');
+    data = data.replace(new RegExp(`${secret}`, 'gi'), '****');
   }
   return data;
 }
