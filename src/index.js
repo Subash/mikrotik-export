@@ -6,17 +6,18 @@ const pkg = require('../package.json');
 const paddedNewLine = `\n${new Array(23).fill('').join(' ')}`;
 
 program
-  .version(pkg.version, '--version')
+  .version(pkg.version, '--version', 'Output the version number')
   .option('--host <host>', 'Device hostname or IP address')
   .option('--port <port>', 'SSH port of the device', 22)
   .option('--username <username>', 'Device username')
   .option('--password <password>', 'Device password')
   .option('--file <file>', 'Path of the exported file', 'config.rsc')
-  .option('--keep-comments', 'Keep Comments')
-  .option('--no-beautify', 'No Beautify')
+  .option('--keep-comments', 'Keep comments')
+  .option('--no-beautify', 'No beautify')
   .option('--secrets <secrets>', 'Comma separated list of secrets to conceal')
-  .option('--keep-secrets', 'Keep Secrets')
+  .option('--keep-secrets', 'Keep all secrets')
   .option('--delay <delay>', `Add a delay at the beginning of the file ${paddedNewLine} https://forum.mikrotik.com/viewtopic.php?t=73663#p374885 ${paddedNewLine} Set \`none\` for no delay.`, '30s')
+  .helpOption('-h, --help', 'Display help')
   .parse(process.argv);
 
 let optionMissing;
@@ -41,7 +42,7 @@ const options = {
 if(optionMissing) process.exit(1);
 
 exporter.exportConfig(options)
-  .then(()=> console.log(`Config file exported to ${options.file}`))
+  .then(()=> console.log(`Config file exported to ${options.file}.`))
   .catch(console.error.bind(console));
 
 
