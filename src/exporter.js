@@ -6,14 +6,14 @@ const writeFileAsync = promisify(fs.writeFile.bind(fs));
 function beautifyConfig(data) {
    data = data.replace(/\\\s+/gi, '');
    data = data.replace(/\n\//gi, '\n\n/');
-   data = data.split('\n').map( line => line.trim()).join('\n');
+   data = data.split('\n').map(line=> line.trim()).join('\n');
    return data;
 }
 
 function removeComments(data) {
   return data.split('\n')
-             .filter(line => !line.startsWith('#'))
-             .join('\n');
+    .filter(line=> !line.startsWith('#'))
+    .join('\n');
 }
 
 function concealSecrets(data, secrets) {
@@ -36,4 +36,4 @@ async function exportConfig({ username, password, host, port, file, keepComments
   await writeFileAsync(file, data);
 }
 
-exports.exportConfig = exportConfig; 
+exports.exportConfig = exportConfig;
